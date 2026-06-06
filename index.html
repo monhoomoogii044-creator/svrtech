@@ -15,7 +15,7 @@
         :root {
             --primary-bg: #0f1115;    /* Үндсэн гүн хар саарал */
             --secondary-bg: #181c24;  /* Туслах хар саарал */
-            --accent-color: #f5b016;  /* Технологийн тод шар / Алтан шар */
+            --accent-color: #f5b016;  /* Технологийн алтан шар */
             --accent-hover: #db9a0f;  /* Дарсан үеийн бараан шар */
             --text-dark: #1f2937;
             --text-light: #9ca3af;
@@ -48,7 +48,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(245, 176, 22, 0.15);
+            border-bottom: 1px solid rgba(245, 176, 22, 0.2);
             backdrop-filter: blur(8px);
             padding: 12px 0;
         }
@@ -389,9 +389,9 @@
     <!-- Навигаци (Толгой хэсэг) -->
     <header>
         <div class="nav-container">
-            <!-- Зургийг ямар ч алдаагүй найдвартай уншуулах үүднээс 'logo.png' болгов -->
             <a href="#" class="logo">
-                <img src="logo.png" alt="SVR TECH Лого">
+                <!-- Гацсан кэшийг хүчээр арилгахын тулд ?v=2 залгаас нэмэв -->
+                <img src="logo.png?v=2" alt="SVR TECH Лого">
             </a>
             <nav>
                 <ul>
