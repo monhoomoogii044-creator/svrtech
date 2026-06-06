@@ -48,7 +48,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(245, 176, 22, 0.1);
+            border-bottom: 1px solid rgba(245, 176, 22, 0.15);
             backdrop-filter: blur(8px);
             padding: 12px 0;
         }
@@ -69,14 +69,9 @@
         }
 
         .logo img {
-            height: 46px;
+            height: 48px;
             width: auto;
             display: block;
-            transition: var(--transition);
-        }
-
-        .logo img:hover {
-            transform: scale(1.02);
         }
 
         nav ul {
@@ -116,7 +111,7 @@
         .hero {
             background-color: var(--primary-bg);
             background-image: radial-gradient(circle at top right, rgba(245, 176, 22, 0.06), transparent 45%);
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             color: var(--white);
@@ -196,7 +191,7 @@
             border-radius: 2px;
         }
 
-        /* Үйл ажиллагааны чиглэл (Гурван карт) */
+        /* Үйл ажиллагааны чиглэл */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -394,9 +389,9 @@
     <!-- Навигаци (Толгой хэсэг) -->
     <header>
         <div class="nav-container">
-            <!-- Зургийг тань найдвартай уншуулах үүднээс замыг засав -->
+            <!-- Зургийг ямар ч алдаагүй найдвартай уншуулах үүднээс 'logo.png' болгов -->
             <a href="#" class="logo">
-                <img src="./logo.png" alt="SVR TECH Лого">
+                <img src="logo.png" alt="SVR TECH Лого">
             </a>
             <nav>
                 <ul>
@@ -459,7 +454,7 @@
                 </div>
             </div>
 
-            <!-- Formspree Форм (Бүх өнгийг хар шар болгов) -->
+            <!-- Formspree Хүсэлтийн Форм -->
             <div class="form-container">
                 <h3>Үнийн санал авах хүсэлт</h3>
                 <form action="https://formspree.io/f/mjgdgjnv" method="POST">
