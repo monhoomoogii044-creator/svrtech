@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Үнийн Тооцоолуур</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Inter', sans-serif; 
+        }
+        body { 
+            background-color: #0f1115; 
+            color: #e5e7eb; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .calc-box { 
+            background-color: #181c24; 
+            border: 1px solid rgba(245, 176, 22, 0.2); 
+            width: 100%; 
+            max-width: 450px; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5); 
+        }
+        h2 { 
+            text-align: center; 
+            color: #fff; 
+            margin-bottom: 5px; 
+            font-size: 22px; 
+        }
+        p.subtitle { 
+            text-align: center; 
+            color: #9ca3af; 
+            font-size: 13px; 
+            margin-bottom: 25px; 
+        }
+        .form-group { 
+            margin-bottom: 20px; 
+        }
+        label { 
+            display: block; 
+            color: #9ca3af; 
+            font-size: 14px; 
+            margin-bottom: 8px; 
+        }
+        .input-wrapper { 
+            position: relative; 
+            display: flex; 
+            align-items: center; 
+        }
+        input { 
+            width: 100%; 
+            background: rgba(255,255,255,0.04); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            padding: 12px 40px 12px 15px; 
+            color: #fff; 
+            font-size: 18px; 
+            font-weight: 600; 
+            border-radius: 6px; 
+            outline: none; 
+        }
+        input:focus { 
+            border-color: #f5b016; 
+        }
+        .currency { 
+            position: absolute; 
+            right: 15px; 
+            color: #f5b016; 
+            font-weight: 600; 
+        }
+        .results { 
+            background: rgba(0,0,0,0.2); 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-top: 20px; 
+            border-left: 4px solid #f5b016; 
+        }
+        .row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 10px; 
+            font-size: 14px; 
+            color: #9ca3af; 
+        }
+        .row span.val { 
+            color: #fff; 
+            font-weight: 500; 
+        }
+        .row.total { 
+            margin-top: 12px; 
+            padding-top: 12px; 
+            border-top: 1px solid rgba(255,255,255,0.08); 
+            font-size: 16px; 
+            color: #fff; 
+            font-weight: 700; 
+        }
+        .row.total span.val { 
+            color: #f5b016; 
+            font-size: 20px; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-box">
+        <h2>Үнийн Тооцоолуур</h2>
+        <p class="subtitle">Ашиг 30% + НӨАТ 10% тооцоолох систем</p>
+
+        <div class="form-group">
+            <label>Үндсэн үнэ (Өртөг)</label>
+            <div class="input-wrapper">
+                <input type="number" id="priceInput" placeholder="0" oninput="calculate()">
+                <span class="currency">₮</span>
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="row">
+                <span>Оруулсан үнэ:</span>
+                <span class="val" id="outCost">0 ₮</span>
+            </div>
+            <div class="row">
+                <span>Нэмэгдсэн ашиг (30%):</span>
+                <span class="val" id="outProfit">0 ₮</span>
+            </div>
+            <div class="row">
+                <span>Ашигтай үнэ (НӨАТ-гүй):</span>
+                <span class="val" id="outSub">0 ₮</span>
+            </div>
+            <div class="row">
+                <span>НӨАТ (10%):</span>
+                <span class="val" id="outVat">0 ₮</span>
+            </div>
+            <div class="row total">
+                <span>Эцсийн худалдах үнэ:</span>
+                <span class="val" id="outTotal">0 ₮</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fmt(num) { 
+            return Number(num).toLocaleString('mn-MN') + ' ₮'; 
+        }
+        function calculate() {
+            const cost = parseFloat(document.getElementById('priceInput').value) || 0;
+            
+            // 1. Ашиг 30% нэмэх
+            const profit = cost * 0.30;
+            const sub = cost + profit;
+            
+            // 2. НӨАТ 10% нэмэх
+            const vat = sub * 0.10;
+            const total = sub + vat;
+
+            // Үр дүнгүүдийг дэлгэцэнд харуулах
+            document.getElementById('outCost').innerText = fmt(cost);
+            document.getElementById('outProfit').innerText = fmt(profit);
+            document.getElementById('outSub').innerText = fmt(sub);
+            document.getElementById('outVat').innerText = fmt(vat);
+            document.getElementById('outTotal').innerText = fmt(total);
+        }
+    </script>
+
+</body>
+</html>
