@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVR TECH | Лабораторийн Тоног Төхөөрөмж, Нийлүүлэлт</title>
-    
-    <!-- Google Fonts & FontAwesome Икон -->
+    <!-- Google Fonts & FontAwesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,14 +12,12 @@
     
     <style>
         :root {
-            --primary-bg: #0f1115;    /* Үндсэн гүн хар саарал */
-            --secondary-bg: #181c24;  /* Туслах хар саарал */
-            --accent-color: #f5b016;  /* Технологийн алтан шар */
-            --accent-hover: #db9a0f;  /* Дарсан үеийн бараан шар */
-            --text-dark: #1f2937;
-            --text-light: #9ca3af;
+            --primary-color: #0f172a; /* Гүн хөх/саарал */
+            --accent-color: #2563eb;  /* Технологийн цэнхэр */
+            --text-color: #334155;
+            --bg-light: #f8fafc;
             --white: #ffffff;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -35,22 +32,21 @@
         }
 
         body {
-            color: var(--text-dark);
+            color: var(--text-color);
             background-color: var(--white);
             line-height: 1.6;
         }
 
-        /* Навигацийн хэсэг */
+        /* Навигацийн цэс */
         header {
-            background-color: rgba(15, 17, 21, 0.98);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
-            border-bottom: 1px solid rgba(245, 176, 22, 0.2);
-            backdrop-filter: blur(8px);
-            padding: 12px 0;
+            backdrop-filter: blur(5px);
         }
 
         .nav-container {
@@ -59,112 +55,96 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
             text-decoration: none;
+            letter-spacing: 1px;
         }
 
-        .logo img {
-            height: 48px;
-            width: auto;
-            display: block;
+        .logo span {
+            color: var(--accent-color);
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
-            align-items: center;
-            gap: 35px;
+            gap: 30px;
         }
 
-        nav ul li a {
-            color: #e5e7eb;
+        .nav-links a {
             text-decoration: none;
-            font-size: 15px;
+            color: var(--text-color);
             font-weight: 500;
             transition: var(--transition);
         }
 
-        nav ul li a:hover {
+        .nav-links a:hover {
             color: var(--accent-color);
         }
 
-        .btn-nav {
+        .btn-quote {
             background-color: var(--accent-color);
-            color: var(--primary-bg) !important;
-            padding: 9px 20px;
+            color: var(--white) !important;
+            padding: 8px 18px;
             border-radius: 6px;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(245, 176, 22, 0.2);
+            font-size: 14px;
         }
 
-        .btn-nav:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
+        .btn-quote:hover {
+            background-color: #1d4ed8;
         }
 
-        /* Hero (Нүүр хэсэг) */
+        /* Нүүр хэсэг (Hero) */
         .hero {
-            background-color: var(--primary-bg);
-            background-image: radial-gradient(circle at top right, rgba(245, 176, 22, 0.06), transparent 45%);
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            padding: 150px 20px 100px;
+            padding: 160px 20px 100px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #fff 100%);
             text-align: center;
         }
 
         .hero-content {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 50px;
+            font-size: 42px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
             font-weight: 700;
-            line-height: 1.25;
-            margin-bottom: 25px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero h1 span {
-            color: var(--accent-color);
         }
 
         .hero p {
-            font-size: 19px;
-            color: #a3a3a3;
-            margin-bottom: 40px;
-            font-weight: 400;
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 30px;
         }
 
-        .btn-main {
-            background-color: var(--accent-color);
-            color: var(--primary-bg);
-            text-decoration: none;
-            display: inline-block;
-            padding: 14px 45px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: var(--transition);
-            box-shadow: 0 4px 20px rgba(245, 176, 22, 0.25);
-        }
-
-        .btn-main:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(245, 176, 22, 0.35);
-        }
-
-        /* Хэсгүүдийн ерөнхий стайл */
+        /* Үндсэн чиглэлүүд (Ангилал) */
         section {
-            padding: 100px 20px;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
         .container {
@@ -172,115 +152,143 @@
             margin: 0 auto;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            color: var(--primary-bg);
-            margin-bottom: 60px;
-            position: relative;
-            font-weight: 700;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 14px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Үйл ажиллагааны чиглэл */
-        .grid-3 {
+        .grid-4 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
         .card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 45px 35px;
-            border-radius: 10px;
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f1f5f9;
+            text-align: center;
             transition: var(--transition);
         }
 
         .card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border-color: var(--accent-color);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.04);
         }
 
-        .card .icon {
-            font-size: 38px;
+        .card-icon {
+            font-size: 40px;
             color: var(--accent-color);
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--primary-bg);
-            font-weight: 600;
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 12px;
         }
 
         .card p {
+            font-size: 14px;
             color: #64748b;
-            font-size: 15.5px;
         }
 
-        /* Холбоо барих болон Форм хэсэг */
+        /* Борлуулалтын дараах үйлчилгээ */
+        .services {
+            background-color: var(--bg-light);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-box {
+            display: flex;
+            gap: 20px;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .service-box i {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-top: 4px;
+        }
+
+        .service-box h4 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .service-box p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Түншүүд / Брэндүүд */
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+
+        .brand-item {
+            font-weight: 600;
+            font-size: 20px;
+            color: #94a3b8;
+            letter-spacing: 2px;
+        }
+
+        /* Холбоо барих ба Үнийн санал авах хэсэг */
         .contact-section {
-            background-color: var(--secondary-bg);
+            background-color: var(--primary-color);
             color: var(--white);
-            border-top: 1px solid rgba(245, 176, 22, 0.05);
+        }
+
+        .contact-section .section-title {
+            color: var(--white);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
             align-items: start;
         }
 
-        .contact-info h2 {
-            font-size: 34px;
-            font-weight: 700;
-            margin-bottom: 22px;
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
         .contact-info p {
-            color: #9ca3af;
-            margin-bottom: 45px;
-            font-size: 16.5px;
+            color: #94a3b8;
+            margin-bottom: 30px;
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
         }
 
-        .info-item .icon-box {
-            width: 52px;
-            height: 52px;
-            background: rgba(245, 176, 22, 0.08);
-            border: 1px solid rgba(245, 176, 22, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .info-item i {
+            font-size: 20px;
             color: var(--accent-color);
-            font-size: 19px;
+            width: 25px;
         }
 
-        .info-item a, .info-item span {
+        .info-item a {
             color: var(--white);
             text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
             transition: var(--transition);
         }
 
@@ -288,207 +296,217 @@
             color: var(--accent-color);
         }
 
-        /* Үнийн санал авах хүсэлтийн форм */
-        .form-container {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 45px;
+        /* Форм */
+        .quote-form {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .form-container h3 {
-            font-size: 24px;
-            margin-bottom: 25px;
-            font-weight: 600;
-            border-left: 3px solid var(--accent-color);
-            padding-left: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
             font-size: 14px;
-            color: #9ca3af;
             margin-bottom: 8px;
-            font-weight: 500;
+            color: #cbd5e1;
         }
 
         .form-control {
             width: 100%;
-            background: rgba(255, 255, 255, 0.04);
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 13px 16px;
-            color: var(--white);
             border-radius: 6px;
-            font-size: 15px;
+            color: var(--white);
+            font-size: 14px;
             transition: var(--transition);
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent-color);
-            background: rgba(255, 255, 255, 0.07);
-            box-shadow: 0 0 8px rgba(245, 176, 22, 0.15);
+            background-color: rgba(255, 255, 255, 0.08);
         }
 
         select.form-control option {
-            background: var(--secondary-bg);
+            background-color: var(--primary-color);
             color: var(--white);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 110px;
         }
 
         .btn-submit {
             width: 100%;
-            background: var(--accent-color);
-            color: var(--primary-bg);
+            padding: 14px;
+            background-color: var(--accent-color);
+            color: var(--white);
             border: none;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: 600;
             border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(245, 176, 22, 0.2);
         }
 
         .btn-submit:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
+            background-color: #1d4ed8;
         }
 
-        /* Хөл хэсэг */
-        footer {
-            background-color: #0a0c0f;
-            padding: 35px 20px;
-            text-align: center;
-            color: #52525b;
-            font-size: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        /* Мобайл зохиоцолт */
+        /* Мобайл зохиогдол */
         @media (max-width: 768px) {
-            nav { display: none; }
-            .hero h1 { font-size: 36px; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .form-container { padding: 30px; }
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .quote-form {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Навигаци (Толгой хэсэг) -->
+    <!-- Навигаци -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">
-                <!-- Гацсан кэшийг хүчээр арилгахын тулд ?v=2 залгаас нэмэв -->
-                <img src="logo.png?v=2" alt="SVR TECH Лого">
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#">Нүүр</a></li>
-                    <li><a href="#directions">Чиглэл</a></li>
-                    <li><a href="#contact">Холбоо барих</a></li>
-                    <li><a href="#contact" class="btn-nav">Үнийн санал авах</a></li>
-                </ul>
-            </nav>
+            <a href="#" class="logo">SVR <span>TECH</span></a>
+            <ul class="nav-links">
+                <li><a href="#">Нүүр</a></li>
+                <li><a href="#directions">Чиглэл</a></li>
+                <li><a href="#services">Үйлчилгээ</a></li>
+                <li><a href="#contact" class="btn-quote">Үнийн санал авах</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- Нүүр хэсэг (Hero) -->
+    <!-- Илэрхийлэл (Hero) -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Судалгаа, Шинжилгээний Лабораторийн <span>Цогц Шийдэл</span></h1>
+            <h1>Судалгаа, Шинжилгээний Лабораторийн Цогц Шийдэл</h1>
             <p>Бид олон улсын стандартад нийцсэн өндөр нарийвчлалын аналитик тоног төхөөрөмж, туслах багаж хэрэгсэл болон чанартай хэрэглэгдэхүүнийг найдвартай нийлүүлнэ.</p>
-            <a href="#contact" class="btn-main">Хамтран ажиллах</a>
+            <a href="#contact" class="btn-submit" style="text-decoration: none; display: inline-block; width: auto; padding: 14px 35px;">Хамтран ажиллах</a>
         </div>
     </section>
 
-    <!-- Үйл ажиллагааны чиглэл -->
+    <!-- Үндсэн 4 чиглэл -->
     <section id="directions" class="container">
         <h2 class="section-title">Үйл ажиллагааны чиглэл</h2>
-        <div class="grid-3">
+        <div class="grid-4">
             <div class="card">
-                <div class="icon"><i class="fa-solid fa-microscope"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
                 <h3>Лабораторийн төхөөрөмж</h3>
-                <p>Судалгаа шинжилгээ, чанарын хяналтын лабораториудад зориулсан хамгийн сүүлийн үеийн өндөр нарийвчлалтай багаж тоног төхөөрөмжүүд.</p>
+                <p>Эрдэм шинжилгээ, аналитик туршилт, судалгааны зориулалттай өндөр нарийвчлалын үндсэн тоног төхөөрөмжүүд.</p>
             </div>
             <div class="card">
-                <div class="icon"><i class="fa-solid fa-vial"></i></div>
-                <h3>Сэлбэг, Хэрэглэгдэхүүн</h3>
-                <p>Тоног төхөөрөмжийн тасралтгүй ажиллагааг хангах оригинал сэлбэг хэрэгсэл, урвалж бодис болон шил савнууд.</p>
+                <div class="card-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3>Багаж хэрэгсэл</h3>
+                <p>Лабораторийн өдөр тутмын үйл ажиллагаанд ашиглагдах хэмжилтийн болон туслах багаж хэрэгсэл.</p>
             </div>
             <div class="card">
-                <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                <h3>Засвар үйлчилгээ</h3>
-                <p>Мэргэжлийн инженерийн баг хамт олон тоног төхөөрөмжийн угсралт, тохируулга, сургалт болон баталгаат засварыг хариуцна.</p>
+                <div class="card-icon"><i class="fa-solid fa-flask-vial"></i></div>
+                <h3>Хэрэглэгдэхүүн</h3>
+                <p>Стандартын шаардлага хангасан туршилт, шинжилгээний урвалж бодис, хэрэглэгдэхүүн.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+                <h3>Эд анги, сэлбэг</h3>
+                <p>Тоног төхөөрөмжийн тасралтгүй ажиллагааг хангах албан ёсны дагалдах хэрэгсэл, сэлбэг.</p>
             </div>
         </div>
     </section>
 
-    <!-- Холбоо барих болон Хүсэлтийн форм хэсэг -->
+    <!-- Инженерчлэл, Техникийн үйлчилгээ -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Борлуулалтын дараах техникийн дэмжлэг</h2>
+            <div class="grid-3">
+                <div class="service-box">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <div>
+                        <h4>Суурилуулалт & Тохируулга</h4>
+                        <p>Нийцэл, нарийвчлалыг хангах үүднээс тоног төхөөрөмжийг мэргэжлийн түвшинд угсарч, зүгшрүүлнэ.</p>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <div>
+                        <h4>Ажиллуулах зааварчилгаа</h4>
+                        <p>Лабораторийн ажилтан, судлаачдад багаж техникийг зөв, аюулгүй ажиллуулах анхан шатны сургалт орно.</p>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <h4>Баталгаат засвар үйлчилгээ</h4>
+                        <p>Нийлүүлсэн бүтээгдэхүүний чанар, баталгаат хугацааны техникийн үйлчилгээг бүрэн хариуцна.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Брэндүүдийн хэсэг -->
+    <section class="container">
+        <h2 class="section-title">Нийлүүлэгч брэндүүд</h2>
+        <div class="brands-grid">
+            <div class="brand-item"><i class="fa-solid fa-circle-nodes"></i> GLOBAL STANDARDS</div>
+            <div class="brand-item"><i class="fa-solid fa-vial"></i> ANALYTICAL TECH</div>
+            <div class="brand-item"><i class="fa-solid fa-dna"></i> LAB SYSTEMS</div>
+            <div class="brand-item"><i class="fa-solid fa-gauge-high"></i> HIGH-PRECISION</div>
+        </div>
+    </section>
+
+    <!-- Холбоо барих & Үнийн санал авах хэсэг -->
     <section id="contact" class="contact-section">
         <div class="container contact-grid">
             
             <div class="contact-info">
-                <h2>Бидэнтэй холбогдох</h2>
+                <h3>Бидэнтэй холбогдох</h3>
                 <p>Танд лабораторийн тоног төхөөрөмж, сэлбэг хэрэгслийн хэрэгцээ байгаа бол дараах сувгуудаар холбогдож зөвлөгөө болон үнийн санал авах боломжтой.</p>
                 
                 <div class="info-item">
-                    <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+                    <i class="fa-solid fa-phone"></i>
                     <a href="tel:60019049">60019049</a>
                 </div>
-                
                 <div class="info-item">
-                    <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
-                    <a href="https://www.svrtech.mn" target="_blank">www.svrtech.mn</a>
+                    <i class="fa-solid fa-globe"></i>
+                    <a href="http://www.svrtech.mn" target="_blank">www.svrtech.mn</a>
                 </div>
             </div>
 
-            <!-- Formspree Хүсэлтийн Форм -->
-            <div class="form-container">
-                <h3>Үнийн санал авах хүсэлт</h3>
-                <form action="https://formspree.io/f/mjgdgjnv" method="POST">
-                    
+            <!-- Үнийн санал авах асуулга (Formspree Холбогдсон) -->
+            <div class="quote-form">
+                <h3 style="margin-bottom: 20px; font-size: 20px;">Үнийн санал авах хүсэлт</h3>
+                <form action="https://formspree.io/f/mjgdgjnv" method="POST" id="requestForm">
                     <div class="form-group">
                         <label for="name">Таны нэр</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Жишээ: Болд" required>
+                        <input type="text" id="name" name="Нэр" class="form-control" placeholder="Жишээ: Болд" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="company">Байгууллагын нэр</label>
-                        <input type="text" id="company" name="company" class="form-control" placeholder="Хүрээлэн, лабораторийн нэр" required>
+                        <label for="organization">Байгууллагын нэр</label>
+                        <input type="text" id="organization" name="Байгууллага" class="form-control" placeholder="Хүрээлэн, лабораторийн нэр">
                     </div>
-
                     <div class="form-group">
                         <label for="phone">Холбоо барих утас</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Жишээ: 99******" required>
+                        <input type="tel" id="phone" name="Утас" class="form-control" placeholder="Жишээ: 99******" required>
                     </div>
-
                     <div class="form-group">
                         <label for="category">Сонирхож буй ангилал</label>
-                        <select id="category" name="category" class="form-control" required>
+                        <select id="category" name="Ангилал" class="form-control">
                             <option value="Лабораторийн төхөөрөмж">Лабораторийн төхөөрөмж</option>
-                            <option value="Хэрэглэгдэхүүн">Хэрэглэгдэхүүн</option>
-                            <option value="Сэлбэг хэрэгсэл">Сэлбэг хэрэгсэл</option>
-                            <option value="Бусад">Бусад</option>
+                            <option value="Багаж хэрэгсэл">Багаж хэрэгсэл</option>
+                            <option value="Туршилтын хэрэглэгдэхүүн">Туршилтын хэрэглэгдэхүүн</option>
+                            <option value="Сэлбэг, эд анги">Сэлбэг, эд анги</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="message">Техникийн шаардлага / Нэмэлт мэдээлэл</label>
-                        <textarea id="message" name="message" class="form-control" placeholder="Хэрэгцээт багажийн үзүүлэлт эсвэл загварыг энд бичнэ үү..." required></textarea>
+                        <textarea id="message" name="Нэмэлт мэдээлэл" rows="4" class="form-control" placeholder="Хэрэгцээт багажийн үзүүлэлт эсвэл загварыг энд бичнэ үү..."></textarea>
                     </div>
-
                     <button type="submit" class="btn-submit">Хүсэлт илгээх</button>
                 </form>
             </div>
