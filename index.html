@@ -1,373 +1,542 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SVR TECH | Лабораторийн тоног төхөөрөмж | 60019049</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVR TECH | Лабораторийн Тоног Төхөөрөмж, Нийлүүлэлт</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0f172a; /* Гүн хөх/саарал */
+            --accent-color: #2563eb;  /* Технологийн цэнхэр */
+            --text-color: #334155;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
 
-<meta name="description" content="SVR TECH — Эрдэм шинжилгээ, туршилт, судалгааны лабораторийн тоног төхөөрөмж, багаж хэрэгсэл, эд анги, сэлбэг хэрэгслийн худалдаа. Холбоо барих: 60019049">
-<meta name="keywords" content="лабораторийн тоног төхөөрөмж, лабораторийн багаж, судалгааны багаж, шинжилгээний төхөөрөмж, лабораторийн хэрэгсэл, SVR TECH, 60019049, svrtech.mn">
-<meta name="robots" content="index, follow">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        html {
+            scroll-behavior: smooth;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        body {
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
 
-body{
-    font-family:'Inter',sans-serif;
-    background:#ffffff;
-    color:#111827;
-    line-height:1.6;
-}
+        /* Навигацийн цэс */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
 
-header{
-    background:#ffffff;
-    border-bottom:1px solid #e5e7eb;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-.nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
-}
+        .logo span {
+            color: var(--accent-color);
+        }
 
-.logo{
-    font-size:32px;
-    font-weight:800;
-    letter-spacing:1px;
-    color:#111827;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
 
-.logo span{
-    color:#f59e0b;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
 
-.phone{
-    font-size:18px;
-    font-weight:700;
-    text-decoration:none;
-    color:#111827;
-}
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
 
-.hero{
-    padding:120px 0 90px;
-    background:#ffffff;
-}
+        .btn-quote {
+            background-color: var(--accent-color);
+            color: var(--white) !important;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
 
-.hero-content{
-    max-width:700px;
-}
+        .btn-quote:hover {
+            background-color: #1d4ed8;
+        }
 
-.badge{
-    display:inline-block;
-    background:#fff7ed;
-    color:#ea580c;
-    padding:8px 18px;
-    border-radius:999px;
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:24px;
-}
+        /* Нүүр хэсэг (Hero) */
+        .hero {
+            padding: 160px 20px 100px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #fff 100%);
+            text-align: center;
+        }
 
-.hero h1{
-    font-size:58px;
-    line-height:1.1;
-    margin-bottom:24px;
-    font-weight:800;
-}
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-.hero p{
-    font-size:20px;
-    color:#4b5563;
-    margin-bottom:40px;
-}
+        .hero h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
 
-.hero-buttons{
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
-}
+        .hero p {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
 
-.btn{
-    padding:15px 32px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:700;
-    transition:0.2s;
-}
+        /* Үндсэн чиглэлүүд (Ангилал) */
+        section {
+            padding: 80px 20px;
+        }
 
-.btn-primary{
-    background:#f59e0b;
-    color:white;
-}
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+        }
 
-.btn-primary:hover{
-    background:#d97706;
-}
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
 
-.btn-outline{
-    border:2px solid #f59e0b;
-    color:#f59e0b;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.btn-outline:hover{
-    background:#f59e0b;
-    color:white;
-}
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
 
-section{
-    padding:90px 0;
-}
+        .card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f1f5f9;
+            text-align: center;
+            transition: var(--transition);
+        }
 
-.section-title{
-    font-size:42px;
-    font-weight:800;
-    margin-bottom:18px;
-    text-align:center;
-}
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
 
-.section-sub{
-    text-align:center;
-    max-width:700px;
-    margin:0 auto 60px;
-    color:#6b7280;
-    font-size:18px;
-}
+        .card-icon {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:24px;
-}
+        .card h3 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
 
-.card{
-    border:1px solid #e5e7eb;
-    border-radius:20px;
-    padding:32px;
-    background:#ffffff;
-    transition:0.2s;
-}
+        .card p {
+            font-size: 14px;
+            color: #64748b;
+        }
 
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
+        /* Борлуулалтын дараах үйлчилгээ */
+        .services {
+            background-color: var(--bg-light);
+        }
 
-.card h3{
-    margin:18px 0 12px;
-    font-size:22px;
-}
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.card p{
-    color:#6b7280;
-}
+        .service-box {
+            display: flex;
+            gap: 20px;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
 
-.icon{
-    width:60px;
-    height:60px;
-    border-radius:16px;
-    background:#fff7ed;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-}
+        .service-box i {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-top: 4px;
+        }
 
-.contact{
-    background:#f9fafb;
-    text-align:center;
-}
+        .service-box h4 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
 
-.contact-box{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:24px;
-    padding:50px;
-}
+        .service-box p {
+            font-size: 14px;
+            color: #64748b;
+        }
 
-.contact-number{
-    display:block;
-    margin:24px 0;
-    font-size:42px;
-    font-weight:800;
-    color:#f59e0b;
-    text-decoration:none;
-}
+        /* Түншүүд / Брэндүүд */
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
 
-.domain{
-    margin-top:10px;
-    font-size:18px;
-    color:#6b7280;
-}
+        .brand-item {
+            font-weight: 600;
+            font-size: 20px;
+            color: #94a3b8;
+            letter-spacing: 2px;
+        }
 
-footer{
-    padding:28px 0;
-    text-align:center;
-    border-top:1px solid #e5e7eb;
-    color:#6b7280;
-    background:#ffffff;
-}
+        /* Холбоо барих ба Үнийн санал авах хэсэг */
+        .contact-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
 
-@media(max-width:768px){
+        .contact-section .section-title {
+            color: var(--white);
+        }
 
-.hero h1{
-    font-size:40px;
-}
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: start;
+        }
 
-.hero p{
-    font-size:18px;
-}
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.section-title{
-    font-size:32px;
-}
+        .contact-info p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
 
-.contact-number{
-    font-size:34px;
-}
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
 
-}
-</style>
+        .info-item i {
+            font-size: 20px;
+            color: var(--accent-color);
+            width: 25px;
+        }
+
+        .info-item a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .info-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Форм */
+        .quote-form {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--white);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        select.form-control option {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Хөл хэсэг */
+        footer {
+            background-color: #020617;
+            color: #64748b;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Мобайл зохиогдол */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Шаардлагатай бол дараа нь мобайл цэс нэмж болно */
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .quote-form {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <div class="container nav">
-        <div class="logo">SVR<span>TECH</span></div>
-        <a href="tel:60019049" class="phone">60019049</a>
-    </div>
-</header>
+    <!-- Навигаци -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">SVR <span>TECH</span></a>
+            <ul class="nav-links">
+                <li><a href="#">Нүүр</a></li>
+                <li><a href="#directions">Чиглэл</a></li>
+                <li><a href="#services">Үйлчилгээ</a></li>
+                <li><a href="#contact" class="btn-quote">Үнийн санал авах</a></li>
+            </ul>
+        </div>
+    </header>
 
-<section class="hero">
-    <div class="container">
+    <!-- Илэрхийлэл (Hero) -->
+    <section class="hero">
         <div class="hero-content">
-
-            <div class="badge">
-                Лабораторийн тоног төхөөрөмжийн худалдаа
-            </div>
-
-            <h1>
-                Эрдэм шинжилгээ, туршилт, судалгааны лабораторийн тоног төхөөрөмж
-            </h1>
-
-            <p>
-                Лабораторийн тоног төхөөрөмж, багаж хэрэгсэл, хэрэглэгдэхүүн, эд анги, сэлбэг хэрэгслийн худалдаа.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="tel:60019049" class="btn btn-primary">
-                    Холбогдох
-                </a>
-
-                <a href="#contact" class="btn btn-outline">
-                    Дэлгэрэнгүй
-                </a>
-            </div>
-
+            <h1>Судалгаа, Шинжилгээний Лабораторийн Цогц Шийдэл</h1>
+            <p>Бид олон улсын стандартад нийцсэн өндөр нарийвчлалын аналитик тоног төхөөрөмж, туслах багаж хэрэгсэл болон чанартай хэрэглэгдэхүүнийг найдвартай нийлүүлнэ.</p>
+            <a href="#contact" class="btn-submit" style="text-decoration: none; display: inline-block; width: auto; padding: 14px 35px;">Хамтран ажиллах</a>
         </div>
-    </div>
-</section>
+    </section>
 
-<section>
-    <div class="container">
-
-        <h2 class="section-title">
-            Үйл ажиллагааны чиглэл
-        </h2>
-
-        <p class="section-sub">
-            Судалгаа, шинжилгээний лабораторид шаардлагатай тоног төхөөрөмж болон хэрэгслийн нийлүүлэлт.
-        </p>
-
-        <div class="grid">
-
+    <!-- Үндсэн 4 чиглэл -->
+    <section id="directions" class="container">
+        <h2 class="section-title">Үйл ажиллагааны чиглэл</h2>
+        <div class="grid-4">
             <div class="card">
-                <div class="icon">⚗️</div>
+                <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
                 <h3>Лабораторийн төхөөрөмж</h3>
-                <p>
-                    Судалгаа, шинжилгээний зориулалтын тоног төхөөрөмж.
-                </p>
+                <p>Эрдэм шинжилгээ, аналитик туршилт, судалгааны зориулалттай өндөр нарийвчлалын үндсэн тоног төхөөрөмжүүд.</p>
             </div>
-
             <div class="card">
-                <div class="icon">🔬</div>
+                <div class="card-icon"><i class="fa-solid fa-compass-drafting"></i></div>
                 <h3>Багаж хэрэгсэл</h3>
-                <p>
-                    Лабораторийн багаж, хэмжилтийн хэрэгсэл.
-                </p>
+                <p>Лабораторийн өдөр тутмын үйл ажиллагаанд ашиглагдах хэмжилтийн болон туслах багаж хэрэгсэл.</p>
             </div>
-
             <div class="card">
-                <div class="icon">🧪</div>
+                <div class="card-icon"><i class="fa-solid fa-flask-vial"></i></div>
                 <h3>Хэрэглэгдэхүүн</h3>
-                <p>
-                    Туршилт, шинжилгээнд ашиглах хэрэглэгдэхүүн.
-                </p>
+                <p>Стандартын шаардлага хангасан туршилт, шинжилгээний урвалж бодис, хэрэглэгдэхүүн.</p>
             </div>
-
             <div class="card">
-                <div class="icon">⚙️</div>
+                <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
                 <h3>Эд анги, сэлбэг</h3>
-                <p>
-                    Тоног төхөөрөмжийн сэлбэг болон дагалдах хэрэгсэл.
-                </p>
+                <p>Тоног төхөөрөмжийн тасралтгүй ажиллагааг хангах албан ёсны дагалдах хэрэгсэл, сэлбэг.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Инженерчлэл, Техникийн үйлчилгээ -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Борлуулалтын дараах техникийн дэмжлэг</h2>
+            <div class="grid-3">
+                <div class="service-box">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <div>
+                        <h4>Суурилуулалт & Тохируулга</h4>
+                        <p>Нийцэл, нарийвчлалыг хангах үүднээс тоног төхөөрөмжийг мэргэжлийн түвшинд угсарч, зүгшрүүлнэ.</p>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <div>
+                        <h4>Ажиллуулах зааварчилгаа</h4>
+                        <p>Лабораторийн ажилтан, судлаачдад багаж техникийг зөв, аюулгүй ажиллуулах анхан шатны сургалт орно.</p>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <h4>Баталгаат засвар үйлчилгээ</h4>
+                        <p>Нийлүүлсэн бүтээгдэхүүний чанар, баталгаат хугацааны техникийн үйлчилгээг бүрэн хариуцна.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Брэндүүдийн хэсэг -->
+    <section class="container">
+        <h2 class="section-title">Нийлүүлэгч брэндүүд</h2>
+        <div class="brands-grid">
+            <div class="brand-item"><i class="fa-solid fa-circle-nodes"></i> GLOBAL STANDARDS</div>
+            <div class="brand-item"><i class="fa-solid fa-vial"></i> ANALYTICAL TECH</div>
+            <div class="brand-item"><i class="fa-solid fa-dna"></i> LAB SYSTEMS</div>
+            <div class="brand-item"><i class="fa-solid fa-gauge-high"></i> HIGH-PRECISION</div>
+        </div>
+    </section>
+
+    <!-- Холбоо барих & Үнийн санал авах хэсэг -->
+    <section id="contact" class="contact-section">
+        <div class="container contact-grid">
+            
+            <div class="contact-info">
+                <h3>Бидэнтэй холбогдох</h3>
+                <p>Танд лабораторийн тоног төхөөрөмж, сэлбэг хэрэгслийн хэрэгцээ байгаа бол дараах сувгуудаар холбогдож зөвлөгөө болон үнийн санал авах боломжтой.</p>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:60019049">60019049</a>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <a href="http://www.svrtech.mn" target="_blank">www.svrtech.mn</a>
+                </div>
+            </div>
+
+            <!-- Үнийн санал авах асуулга -->
+            <div class="quote-form">
+                <h3 style="margin-bottom: 20px; font-size: 20px;">Үнийн санал авах хүсэлт</h3>
+                <form id="requestForm">
+                    <div class="form-group">
+                        <label for="name">Таны нэр</label>
+                        <input type="text" id="name" class="form-control" placeholder="Жишээ: Болд" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Байгууллагын нэр</label>
+                        <input type="text" id="organization" class="form-control" placeholder="Хүрээлэн, лабораторийн нэр">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Холбоо барих утас</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Жишээ: 99******" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Сонирхож буй ангилал</label>
+                        <select id="category" class="form-control">
+                            <option value="equipment">Лабораторийн төхөөрөмж</option>
+                            <option value="tools">Багаж хэрэгсэл</option>
+                            <option value="consumables">Туршилтын хэрэглэгдэхүүн</option>
+                            <option value="parts">Сэлбэг, эд анги</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Техникийн шаардлага / Нэмэлт мэдээлэл</label>
+                        <textarea id="message" rows="4" class="form-control" placeholder="Хэрэгцээт багажийн үзүүлэлт эсвэл загварыг энд бичнэ үү..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Хүсэлт илгээх</button>
+                </form>
             </div>
 
         </div>
+    </section>
 
-    </div>
-</section>
+    <!-- Хөл хэсэг -->
+    <footer>
+        <p>&copy; 2026 SVR TECH. Бүх эрх хуулиар хамгаалагдсан.</p>
+    </footer>
 
-<section class="contact" id="contact">
-    <div class="container">
-
-        <div class="contact-box">
-
-            <h2 class="section-title">
-                Холбоо барих
-            </h2>
-
-            <p class="section-sub">
-                Лабораторийн тоног төхөөрөмжийн захиалга болон мэдээлэл авах.
-            </p>
-
-            <a href="tel:60019049" class="contact-number">
-                60019049
-            </a>
-
-            <div class="domain">
-                www.svrtech.mn
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        © 2026 SVR TECH | Лабораторийн тоног төхөөрөмж
-    </div>
-</footer>
+    <!-- Хэлбэр илгээх үеийн энгийн хариу үйлдэл -->
+    <script>
+        document.getElementById('requestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Баярлалаа! Таны үнийн санал авах хүсэлтийг хүлээн авлаа. Бид тантай удахгүй холбогдох болно.');
+            this.reset();
+        });
+    </script>
 
 </body>
 </html>
