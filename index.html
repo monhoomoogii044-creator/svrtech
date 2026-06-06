@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVR TECH | Лабораторийн Тоног Төхөөрөмж, Нийлүүлэлт</title>
+    
+    <!-- Google Fonts & FontAwesome Икон -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,19 +13,19 @@
     
     <style>
         :root {
-            --primary-color: #0f1115; /* Гүн хар саарал */
-            --secondary-color: #181c24; /* Туслах хар саарал */
-            --accent-color: #f5b016; /* Технологийн тод шар */
+            --primary-bg: #0f1115;    /* Үндсэн гүн хар саарал */
+            --secondary-bg: #181c24;  /* Туслах хар саарал */
+            --accent-color: #f5b016;  /* Технологийн тод шар / Алтан шар */
+            --accent-hover: #db9a0f;  /* Дарсан үеийн бараан шар */
             --text-dark: #1f2937;
             --text-light: #9ca3af;
             --white: #ffffff;
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
-            box-index: border-box;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
@@ -40,14 +42,15 @@
 
         /* Навигацийн хэсэг */
         header {
-            background-color: var(--primary-color);
+            background-color: rgba(15, 17, 21, 0.98);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 15px 0;
+            border-bottom: 1px solid rgba(245, 176, 22, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 12px 0;
         }
 
         .nav-container {
@@ -59,17 +62,28 @@
             padding: 0 20px;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
         .logo img {
-            height: 48px; /* Логоны өндрийг цэвэрхэн тааруулав */
+            height: 46px;
             width: auto;
             display: block;
+            transition: var(--transition);
+        }
+
+        .logo img:hover {
+            transform: scale(1.02);
         }
 
         nav ul {
             display: flex;
             list-style: none;
             align-items: center;
-            gap: 30px;
+            gap: 35px;
         }
 
         nav ul li a {
@@ -85,39 +99,42 @@
         }
 
         .btn-nav {
-            background-color: #3b82f6;
-            color: var(--white) !important;
-            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: var(--primary-bg) !important;
+            padding: 9px 20px;
             border-radius: 6px;
             font-weight: 600;
+            box-shadow: 0 4px 12px rgba(245, 176, 22, 0.2);
         }
 
         .btn-nav:hover {
-            background-color: #2563eb;
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
         }
 
-        /* Hero Нүүр хэсэг */
+        /* Hero (Нүүр хэсэг) */
         .hero {
-            background-color: var(--primary-color);
-            background-image: radial-gradient(circle at top right, rgba(245, 176, 22, 0.05), transparent 40%);
-            min-height: 100vh;
+            background-color: var(--primary-bg);
+            background-image: radial-gradient(circle at top right, rgba(245, 176, 22, 0.06), transparent 45%);
+            min-height: 90vh;
             display: flex;
             align-items: center;
             color: var(--white);
-            padding: 140px 20px 80px;
+            padding: 150px 20px 100px;
             text-align: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 50px;
             font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.25;
             margin-bottom: 25px;
+            letter-spacing: -0.5px;
         }
 
         .hero h1 span {
@@ -125,52 +142,34 @@
         }
 
         .hero p {
-            font-size: 18px;
-            color: #9ca3af;
-            margin-bottom: 35px;
+            font-size: 19px;
+            color: #a3a3a3;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
         .btn-main {
             background-color: var(--accent-color);
-            color: var(--primary-color);
+            color: var(--primary-bg);
             text-decoration: none;
             display: inline-block;
-            padding: 14px 40px;
+            padding: 14px 45px;
             border-radius: 6px;
             font-weight: 600;
             font-size: 16px;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(245, 176, 22, 0.3);
+            box-shadow: 0 4px 20px rgba(245, 176, 22, 0.25);
         }
 
         .btn-main:hover {
-            background-color: #db9a0f;
+            background-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 176, 22, 0.4);
+            box-shadow: 0 6px 25px rgba(245, 176, 22, 0.35);
         }
 
-        /* Үндсэн чиглэлүүд */
+        /* Хэсгүүдийн ерөнхий стайл */
         section {
-            padding: 90px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 30px;
-            color: var(--primary-color);
-            margin-bottom: 50px;
-            position: relative;
-            font-weight: 700;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 12px auto 0;
-            border-radius: 2px;
+            padding: 100px 20px;
         }
 
         .container {
@@ -178,85 +177,108 @@
             margin: 0 auto;
         }
 
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary-bg);
+            margin-bottom: 60px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 14px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Үйл ажиллагааны чиглэл (Гурван карт) */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 40px 30px;
-            border-radius: 8px;
+            padding: 45px 35px;
+            border-radius: 10px;
             transition: var(--transition);
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: var(--accent-color);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.04);
         }
 
         .card .icon {
-            font-size: 36px;
+            font-size: 38px;
             color: var(--accent-color);
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .card h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 15px;
-            color: var(--primary-color);
+            color: var(--primary-bg);
+            font-weight: 600;
         }
 
         .card p {
             color: #64748b;
-            font-size: 15px;
+            font-size: 15.5px;
         }
 
         /* Холбоо барих болон Форм хэсэг */
         .contact-section {
-            background-color: var(--secondary-color);
+            background-color: var(--secondary-bg);
             color: var(--white);
+            border-top: 1px solid rgba(245, 176, 22, 0.05);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
             align-items: start;
         }
 
         .contact-info h2 {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .contact-info p {
             color: #9ca3af;
-            margin-bottom: 40px;
-            font-size: 16px;
+            margin-bottom: 45px;
+            font-size: 16.5px;
         }
 
         .info-item {
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .info-item .icon-box {
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50px;
+            width: 52px;
+            height: 52px;
+            background: rgba(245, 176, 22, 0.08);
+            border: 1px solid rgba(245, 176, 22, 0.2);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #3b82f6;
-            font-size: 18px;
+            color: var(--accent-color);
+            font-size: 19px;
         }
 
         .info-item a, .info-item span {
@@ -264,24 +286,32 @@
             text-decoration: none;
             font-size: 18px;
             font-weight: 600;
+            transition: var(--transition);
         }
 
-        /* Хүсэлтийн форм */
+        .info-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Үнийн санал авах хүсэлтийн форм */
         .form-container {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 45px;
             border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
         .form-container h3 {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 25px;
             font-weight: 600;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .form-group label {
@@ -289,13 +319,14 @@
             font-size: 14px;
             color: #9ca3af;
             margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .form-control {
             width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 13px 16px;
             color: var(--white);
             border-radius: 6px;
             font-size: 15px;
@@ -304,74 +335,81 @@
 
         .form-control:focus {
             outline: none;
-            border-color: #3b82f6;
-            background: rgba(255,255,255,0.08);
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 8px rgba(245, 176, 22, 0.15);
         }
 
         select.form-control option {
-            background: var(--secondary-color);
+            background: var(--secondary-bg);
             color: var(--white);
         }
 
         textarea.form-control {
             resize: vertical;
-            min-height: 100px;
+            min-height: 110px;
         }
 
         .btn-submit {
             width: 100%;
-            background: #3b82f6;
-            color: var(--white);
+            background: var(--accent-color);
+            color: var(--primary-bg);
             border: none;
-            padding: 14px;
+            padding: 15px;
             font-size: 16px;
             font-weight: 600;
             border-radius: 6px;
             cursor: pointer;
             transition: var(--transition);
             margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(245, 176, 22, 0.2);
         }
 
         .btn-submit:hover {
-            background: #2563eb;
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
         }
 
         /* Хөл хэсэг */
         footer {
-            background-color: var(--primary-color);
-            padding: 30px 20px;
+            background-color: #0a0c0f;
+            padding: 35px 20px;
             text-align: center;
-            color: #6b7280;
+            color: #52525b;
             font-size: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
         }
 
+        /* Мобайл зохиоцолт */
         @media (max-width: 768px) {
             nav { display: none; }
             .hero h1 { font-size: 36px; }
             .contact-grid { grid-template-columns: 1fr; }
-            .form-container { padding: 25px; }
+            .form-container { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Навигаци (Толгой хэсэг) -->
     <header>
         <div class="nav-container">
+            <!-- Зургийг тань найдвартай уншуулах үүднээс замыг засав -->
             <a href="#" class="logo">
-                <img src="logo.png" alt="SVR TECH Лого">
+                <img src="./logo.png" alt="SVR TECH Лого">
             </a>
             <nav>
                 <ul>
                     <li><a href="#">Нүүр</a></li>
                     <li><a href="#directions">Чиглэл</a></li>
-                    <li><a href="#services">Үйлчилгээ</a></li>
+                    <li><a href="#contact">Холбоо барих</a></li>
                     <li><a href="#contact" class="btn-nav">Үнийн санал авах</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Нүүр хэсэг (Hero) -->
     <section class="hero">
         <div class="hero-content">
             <h1>Судалгаа, Шинжилгээний Лабораторийн <span>Цогц Шийдэл</span></h1>
@@ -380,6 +418,7 @@
         </div>
     </section>
 
+    <!-- Үйл ажиллагааны чиглэл -->
     <section id="directions" class="container">
         <h2 class="section-title">Үйл ажиллагааны чиглэл</h2>
         <div class="grid-3">
@@ -401,6 +440,7 @@
         </div>
     </section>
 
+    <!-- Холбоо барих болон Хүсэлтийн форм хэсэг -->
     <section id="contact" class="contact-section">
         <div class="container contact-grid">
             
@@ -419,6 +459,7 @@
                 </div>
             </div>
 
+            <!-- Formspree Форм (Бүх өнгийг хар шар болгов) -->
             <div class="form-container">
                 <h3>Үнийн санал авах хүсэлт</h3>
                 <form action="https://formspree.io/f/mjgdgjnv" method="POST">
@@ -460,6 +501,7 @@
         </div>
     </section>
 
+    <!-- Хөл хэсэг -->
     <footer>
         <p>&copy; 2026 SVR TECH. Бүх эрх хуулиар хамгаалагдсан.</p>
     </footer>
