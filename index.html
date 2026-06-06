@@ -354,20 +354,10 @@
             background-color: #1d4ed8;
         }
 
-        /* Хөл хэсэг */
-        footer {
-            background-color: #020617;
-            color: #64748b;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
         /* Мобайл зохиогдол */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Шаардлагатай бол дараа нь мобайл цэс нэмж болно */
+                display: none;
             }
             .hero h1 {
                 font-size: 32px;
@@ -488,34 +478,34 @@
                 </div>
             </div>
 
-            <!-- Үнийн санал авах асуулга -->
+            <!-- Үнийн санал авах асуулга (Formspree Холбогдсон) -->
             <div class="quote-form">
                 <h3 style="margin-bottom: 20px; font-size: 20px;">Үнийн санал авах хүсэлт</h3>
-                <form id="requestForm">
+                <form action="https://formspree.io/f/mjgdgjnv" method="POST" id="requestForm">
                     <div class="form-group">
                         <label for="name">Таны нэр</label>
-                        <input type="text" id="name" class="form-control" placeholder="Жишээ: Болд" required>
+                        <input type="text" id="name" name="Нэр" class="form-control" placeholder="Жишээ: Болд" required>
                     </div>
                     <div class="form-group">
                         <label for="organization">Байгууллагын нэр</label>
-                        <input type="text" id="organization" class="form-control" placeholder="Хүрээлэн, лабораторийн нэр">
+                        <input type="text" id="organization" name="Байгууллага" class="form-control" placeholder="Хүрээлэн, лабораторийн нэр">
                     </div>
                     <div class="form-group">
                         <label for="phone">Холбоо барих утас</label>
-                        <input type="tel" id="phone" class="form-control" placeholder="Жишээ: 99******" required>
+                        <input type="tel" id="phone" name="Утас" class="form-control" placeholder="Жишээ: 99******" required>
                     </div>
                     <div class="form-group">
                         <label for="category">Сонирхож буй ангилал</label>
-                        <select id="category" class="form-control">
-                            <option value="equipment">Лабораторийн төхөөрөмж</option>
-                            <option value="tools">Багаж хэрэгсэл</option>
-                            <option value="consumables">Туршилтын хэрэглэгдэхүүн</option>
-                            <option value="parts">Сэлбэг, эд анги</option>
+                        <select id="category" name="Ангилал" class="form-control">
+                            <option value="Лабораторийн төхөөрөмж">Лабораторийн төхөөрөмж</option>
+                            <option value="Багаж хэрэгсэл">Багаж хэрэгсэл</option>
+                            <option value="Туршилтын хэрэглэгдэхүүн">Туршилтын хэрэглэгдэхүүн</option>
+                            <option value="Сэлбэг, эд анги">Сэлбэг, эд анги</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="message">Техникийн шаардлага / Нэмэлт мэдээлэл</label>
-                        <textarea id="message" rows="4" class="form-control" placeholder="Хэрэгцээт багажийн үзүүлэлт эсвэл загварыг энд бичнэ үү..."></textarea>
+                        <textarea id="message" name="Нэмэлт мэдээлэл" rows="4" class="form-control" placeholder="Хэрэгцээт багажийн үзүүлэлт эсвэл загварыг энд бичнэ үү..."></textarea>
                     </div>
                     <button type="submit" class="btn-submit">Хүсэлт илгээх</button>
                 </form>
@@ -528,15 +518,6 @@
     <footer>
         <p>&copy; 2026 SVR TECH. Бүх эрх хуулиар хамгаалагдсан.</p>
     </footer>
-
-    <!-- Хэлбэр илгээх үеийн энгийн хариу үйлдэл -->
-    <script>
-        document.getElementById('requestForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Баярлалаа! Таны үнийн санал авах хүсэлтийг хүлээн авлаа. Бид тантай удахгүй холбогдох болно.');
-            this.reset();
-        });
-    </script>
 
 </body>
 </html>
