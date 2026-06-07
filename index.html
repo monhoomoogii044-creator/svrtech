@@ -6,18 +6,19 @@
     <title>SVR TECH | Лабораторийн Тоног Төхөөрөмж, Нийлүүлэлт</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #0f1115; /* Гүн хар саарал */
-            --secondary-bg: #181c24;  /* Туслах хар саарал */
-            --accent-color: #f5b016;   /* Технологийн тод шар */
+            --primary-color: #0a0c10; /* Илүү гүн, тансаг хар */
+            --secondary-bg: #131722;  /* Сайн ялгарч өгөх саарал */
+            --accent-color: #f5b016;   /* Алтан шар */
+            --accent-glow: rgba(245, 176, 22, 0.15);
             --text-dark: #1f2937;
             --text-light: #9ca3af;
             --white: #ffffff;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Илүү зөөлөн шилжилт */
         }
 
         * {
@@ -35,19 +36,21 @@
             color: var(--text-dark);
             background-color: var(--white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Навигацийн цэс */
+        /* Навигацийн цэс - Шилэн эффекттэй */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(15, 17, 21, 0.95);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            background-color: rgba(10, 12, 16, 0.85);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
             z-index: 1000;
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(245, 176, 22, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .nav-container {
@@ -56,28 +59,29 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 16px 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo img {
-            height: 40px; /* Логоны өндөр */
+            height: 38px;
             width: auto;
             object-fit: contain;
-            border-radius: 50%; /* Бөөрөнхий харагдуулах */
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
         .logo-text {
             font-size: 22px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--white);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .logo-text span {
@@ -87,75 +91,107 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
             align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #d1d5db;
+            color: #9ca3af;
             font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
             transition: var(--transition);
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--white);
         }
 
         .btn-quote {
             background-color: var(--accent-color);
             color: var(--primary-color) !important;
-            padding: 8px 18px;
-            border-radius: 6px;
+            padding: 10px 22px;
+            border-radius: 8px;
             font-size: 14px;
             font-weight: 600;
+            box-shadow: 0 4px 15px var(--accent-glow);
         }
 
         .btn-quote:hover {
-            background-color: #db9a0f;
+            background-color: #ffffff;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,255,255,0.2);
         }
 
-        /* Нүүр хэсэг (Hero) - Хар дизайн */
+        /* Hamburger Товчлуур (Мобайлд зориулсан) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Нүүр хэсэг (Hero) - Тансаг Гэрэлтүүлэгтэй */
         .hero {
-            padding: 180px 20px 120px;
-            background: linear-gradient(135deg, #0f1115 0%, #1e2430 100%);
+            padding: 220px 20px 150px;
+            background: radial-gradient(circle at 80% 20%, rgba(245, 176, 22, 0.08) 0%, transparent 50%), #0a0c10;
             text-align: center;
             color: var(--white);
             position: relative;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-        }
-
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 46px;
+            font-size: 54px;
             color: var(--white);
             margin-bottom: 25px;
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.2;
+            letter-spacing: -1px;
         }
 
         .hero h1 span {
             color: var(--accent-color);
+            text-shadow: 0 0 30px rgba(245, 176, 22, 0.2);
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 19px;
             color: #9ca3af;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.7;
         }
 
         .btn-main {
@@ -163,41 +199,41 @@
             color: var(--primary-color);
             text-decoration: none;
             display: inline-block;
-            padding: 14px 40px;
-            border-radius: 6px;
+            padding: 16px 45px;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 16px;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(245, 176, 22, 0.3);
+            box-shadow: 0 8px 25px rgba(245, 176, 22, 0.25);
         }
 
         .btn-main:hover {
             background-color: #db9a0f;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 176, 22, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(245, 176, 22, 0.4);
         }
 
         /* Үндсэн чиглэлүүд */
         section {
-            padding: 90px 20px;
+            padding: 100px 20px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 30px;
+            font-size: 34px;
             color: var(--primary-color);
-            margin-bottom: 50px;
-            position: relative;
-            font-weight: 700;
+            margin-bottom: 60px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 50px;
             height: 4px;
             background-color: var(--accent-color);
-            margin: 12px auto 0;
+            margin: 14px auto 0;
             border-radius: 2px;
         }
 
@@ -208,92 +244,114 @@
 
         .grid-4 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
         }
 
         .card {
             background-color: var(--white);
-            padding: 45px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
-            border: 1px solid #e5e7eb;
+            padding: 50px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #f0f1f3;
             text-align: center;
             transition: var(--transition);
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             border-color: var(--accent-color);
         }
 
         .card-icon {
-            font-size: 42px;
-            color: var(--primary-color);
-            margin-bottom: 22px;
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            width: 80px;
-            height: 80px;
+            font-size: 36px;
+            margin-bottom: 25px;
+            background: #fff8e7;
+            width: 75px;
+            height: 75px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 22px;
-            border-radius: 50%;
+            margin: 0 auto 25px;
+            border-radius: 14px;
             color: #b45309;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-icon {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: rotateY(180deg);
         }
 
         .card h3 {
-            font-size: 20px;
+            font-size: 21px;
             color: var(--primary-color);
-            margin-bottom: 12px;
-            font-weight: 600;
+            margin-bottom: 14px;
+            font-weight: 700;
         }
 
         .card p {
             font-size: 14px;
-            color: #4b5563;
+            color: #6b7280;
+            line-height: 1.6;
         }
 
-        /* Борлуулалтын дараах үйлчилгээ - Шаргал саарал фоноор */
+        /* Борлуулалтын дараах үйлчилгээ */
         .services {
-            background-color: #f9fafb;
-            border-top: 1px solid #f3f4f6;
-            border-bottom: 1px solid #f3f4f6;
+            background-color: #f8f9fc;
+            border-top: 1px solid #edf0f5;
+            border-bottom: 1px solid #edf0f5;
         }
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .service-box {
             display: flex;
-            gap: 20px;
+            gap: 22px;
             background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            border-color: rgba(245, 176, 22, 0.3);
         }
 
         .service-box i {
-            font-size: 26px;
+            font-size: 28px;
             color: #b45309;
-            margin-top: 4px;
+            background: #fff8e7;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            flex-shrink: 0;
         }
 
         .service-box h4 {
-            font-size: 18px;
+            font-size: 19px;
             color: var(--primary-color);
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .service-box p {
             font-size: 14px;
             color: #4b5563;
+            line-height: 1.6;
         }
 
         /* Түншүүд */
@@ -301,24 +359,34 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 60px;
+            gap: 50px;
             flex-wrap: wrap;
         }
 
         .brand-item {
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             color: #9ca3af;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            padding: 10px 20px;
+            background: #f8f9fc;
+            border-radius: 8px;
+            transition: var(--transition);
         }
 
-        /* Холбоо барих ба Үнийн санал авах хэсэг - Хар өнгөтэй */
+        .brand-item:hover {
+            color: var(--primary-color);
+            background: #fff8e7;
+        }
+
+        /* Холбоо барих хэсэг */
         .contact-section {
             background-color: var(--primary-color);
             color: var(--white);
+            background: radial-gradient(circle at 10% 90%, rgba(245, 176, 22, 0.05) 0%, transparent 40%), #0a0c10;
         }
 
         .contact-section .section-title {
@@ -327,40 +395,50 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 60px;
-            align-items: start;
+            align-items: center;
         }
 
         .contact-info h3 {
-            font-size: 26px;
+            font-size: 32px;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .contact-info p {
             color: var(--text-light);
-            margin-bottom: 35px;
+            margin-bottom: 40px;
+            font-size: 16px;
+            line-height: 1.7;
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            font-size: 16px;
+            gap: 18px;
+            margin-bottom: 30px;
+            font-size: 17px;
         }
 
         .info-item i {
-            font-size: 22px;
+            font-size: 20px;
             color: var(--accent-color);
-            width: 25px;
+            background: rgba(245, 176, 22, 0.1);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .info-item a {
             color: var(--white);
             text-decoration: none;
             transition: var(--transition);
+            font-weight: 500;
         }
 
         .info-item a:hover {
@@ -370,42 +448,42 @@
         /* Форм */
         .quote-form {
             background-color: var(--secondary-bg);
-            padding: 45px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .quote-form h3 {
-            color: var(--white);
+            padding: 50px 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .form-group label {
             display: block;
-            font-size: 14px;
+            font-size: 13px;
             margin-bottom: 8px;
-            color: #d1d5db;
+            color: #9ca3af;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .form-control {
             width: 100%;
-            padding: 13px;
-            background-color: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
+            padding: 14px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
             color: var(--white);
-            font-size: 14px;
+            font-size: 15px;
             transition: var(--transition);
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent-color);
-            background-color: rgba(255, 255, 255, 0.08);
+            background-color: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 15px rgba(245, 176, 22, 0.1);
         }
 
         select.form-control option {
@@ -415,15 +493,16 @@
 
         .btn-submit {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             background-color: var(--accent-color);
             color: var(--primary-color);
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(245, 176, 22, 0.2);
         }
 
         .btn-submit:hover {
@@ -433,24 +512,57 @@
 
         /* Хөл хэсэг */
         footer {
-            background-color: #0b0d10;
-            padding: 25px;
+            background-color: #06080b;
+            padding: 30px;
             text-align: center;
-            color: #6b7280;
+            color: #4b5563;
             font-size: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
         }
 
-        /* Мобайл зохиогдол */
+        /* Мобайл зохиогдол (Responsive) */
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 73px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 73px);
+                background-color: var(--primary-color);
+                flex-direction: column;
+                gap: 30px;
+                padding: 50px 20px;
+                transition: var(--transition);
+                align-items: flex-start;
+                z-index: 999;
             }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+            }
+
+            .hero {
+                padding: 160px 20px 100px;
+            }
+
             .hero h1 {
-                font-size: 34px;
+                font-size: 36px;
             }
+
+            .hero p {
+                font-size: 16px;
+            }
+
             .quote-form {
-                padding: 25px;
+                padding: 35px 25px;
             }
         }
     </style>
@@ -463,18 +575,23 @@
                 <img src="logo.png" alt="SVR TECH Logo" onerror="this.style.display='none'">
                 <div class="logo-text">SVR <span>TECH</span></div>
             </a>
-            <ul class="nav-links">
-                <li><a href="#">Нүүр</a></li>
-                <li><a href="#directions">Чиглэл</a></li>
-                <li><a href="#services">Үйлчилгээ</a></li>
-                <li><a href="#contact" class="btn-quote">Үнийн санал авах</a></li>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="toggleMenu()">Нүүр</a></li>
+                <li><a href="#directions" onclick="toggleMenu()">Чиглэл</a></li>
+                <li><a href="#services" onclick="toggleMenu()">Үйлчилгээ</a></li>
+                <li><a href="#contact" class="btn-quote" onclick="toggleMenu()">Үнийн санал авах</a></li>
             </ul>
+            <button class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Судалгаа, Шинжилгээний Лабораторийн <span>Цогц Шийдэл</span></h1>
+            <h1>Судалгаа, Шинжилгээний Лабораторийн <br><span>Цогц Шийдэл</span></h1>
             <p>Бид олон улсын стандартад нийцсэн өндөр нарийвчлалын аналитик тоног төхөөрөмж, туслах багаж хэрэгсэл болон чанартай хэрэглэгдэхүүнийг найдвартай нийлүүлнэ.</p>
             <a href="#contact" class="btn-main">Хамтран ажиллах</a>
         </div>
@@ -500,7 +617,7 @@
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
-                <h3>Эд анги, сэлбэг</h3>
+                <h3>Эд анги, sэлбэг</h3>
                 <p>Тоног төхөөрөмжийн тасралтгүй ажиллагааг хангах албан ёсны дагалдах хэрэгсэл, сэлбэг.</p>
             </div>
         </div>
@@ -528,7 +645,7 @@
                     <i class="fa-solid fa-shield-halved"></i>
                     <div>
                         <h4>Баталгаат засвар үйлчилгээ</h4>
-                        <p>Нийлүүлсэн бүтээгдэхүүний чанар, баталгаат хугацааны техникийн үйлчилгээг бүрэн хариуцна.</p>
+                        <p>Нийцүүлсэн бүтээгдэхүүний чанар, баталгаат хугацааны техникийн үйлчилгээг бүрэн хариуцна.</p>
                     </div>
                 </div>
             </div>
@@ -601,5 +718,14 @@
         <p>&copy; 2026 SVR TECH. Бүх эрх хуулиар хамгаалагдсан.</p>
     </footer>
 
+    <script>
+        // Мобайл цэс нээж хаах функц
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            if(window.innerWidth <= 768) {
+                navLinks.classList.toggle('active');
+            }
+        }
+    </script>
 </body>
 </html>
